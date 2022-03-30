@@ -2,6 +2,8 @@ import numpy as np
 from histogram_filter.world import Grid, Color, Agent, Environment, TransitionSpecification
 import termplotlib as tpl
 
+from typing import Iterable
+
 
 def bayes(prior: np.ndarray, conditional: np.ndarray) -> np.ndarray:
     """Applies bias to update current believes based on measurement.
@@ -70,3 +72,30 @@ def visualize_belief(belief: np.ndarray):
     fig = tpl.figure()
     fig.plot(np.arange(1, len(belief) + 1), belief, width=50, height=15)
     fig.show()
+
+
+def format_list(list_to_format: Iterable, element_formatter: str) -> list:
+    """Formats a list.
+
+    Args:
+        list_to_format (list): List to format.
+        element_formatter (str, optional): Format for each element. Defaults to "{:.2f}".
+        delimiter (str, optional): Delimiter between elements. Defaults to ", ".
+
+    Returns:
+        str: Formatted list.
+    """
+    return [element_formatter.format(element) for element in list_to_format]
+
+
+def format_belief(belief: np.ndarray) -> list:
+    """Formats a belief.
+
+    Args:
+        belief (np.ndarray): 1D array of shape (N,) of belief probabilities.
+            Number of entries equals the number of states.
+
+    Returns:
+        list: Formatted belief.
+    """
+    return format_list(belief, element_formatter="{:.2f}")
