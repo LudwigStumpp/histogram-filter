@@ -120,6 +120,9 @@ class Grid:
         # prints squares with colors next to each other in one line
         return " ".join(chrs[c] + "   " + chrs["CEND"] for c in self.field)
 
+    def __getitem__(self, key: int) -> Color:
+        return self.field[key]
+
     @staticmethod
     def create_random_field(length: int, p_blue: float) -> list[Color]:
         """Create random list of colors with blue and orange.
