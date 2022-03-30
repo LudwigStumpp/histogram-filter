@@ -1,5 +1,5 @@
 import numpy as np
-from world import Grid, Color, Agent, Environment, TransitionSpecification
+from histogram_filter.world import Grid, Color, Agent, Environment, TransitionSpecification
 import termplotlib as tpl
 
 
