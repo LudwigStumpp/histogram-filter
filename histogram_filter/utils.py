@@ -38,6 +38,7 @@ def propagate(curr_belief: np.ndarray, transition_matrix: np.ndarray) -> np.ndar
 
 
 def setup(
+    field: list[Color] = [Color.BLUE, Color.ORANGE, Color.BLUE, Color.BLUE, Color.ORANGE],
     correct_measurement_prob: float = 0.9,
     transition: TransitionSpecification = TransitionSpecification(0, [0.05, 0.9, 0.05]),
     start_position: int = 0,
@@ -53,9 +54,7 @@ def setup(
     Returns:
         Environment: Environment object.
     """
-    field = [Color.BLUE, Color.ORANGE, Color.BLUE, Color.BLUE, Color.ORANGE]
     my_grid = Grid(field)
-    transition = transition
     my_agent = Agent(transition=transition, correct_measurement_prob=correct_measurement_prob)
     my_env = Environment(my_grid, my_agent, start_position=start_position)
     return my_env
