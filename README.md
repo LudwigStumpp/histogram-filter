@@ -13,3 +13,10 @@ The task is seen as a typical filtering problem of a HMM where:
 
 ## Reference
 See Artificial Intelligence: A Modern Approach - 3rd Edition (Russel, Norvig) Chapter 15.2.1 Filtering and prediction.
+
+## Installation
+The file `requirements.txt` contains all the libraries needed.
+In addition, the library `termplotlib` used for plotting graphs in the console requires `gnuplot`. This link refers to the installation on https://wiki.ubuntuusers.de/Gnuplot/.
+
+## Development
+We use black for formatting, mypy for static typing and flake for linting. The development dependencies are listed under the `requirements.txt` file.
