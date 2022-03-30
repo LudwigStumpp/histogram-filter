@@ -147,7 +147,11 @@ class Agent:
     """
 
     def __init__(self, transition: TransitionSpecification, correct_measurement_prob: float) -> None:
+        if sum(transition.probs) != 1.0:
+            raise ValueError("Sum of probabilities must be 1.0")
         self.transition = transition
+        if correct_measurement_prob < 0 or correct_measurement_prob > 1:
+            raise ValueError("Probability of correct measurement must be in [0, 1]")
         self.correct_measurement_prob = correct_measurement_prob
 
 
@@ -176,7 +180,7 @@ class Environment:
 
     def sense(self) -> Color:
         """Sense the color of the square the agent is on based on the agent's sensor accuracy."""
-        true_color = self.grid.field[self.position]
+        true_color = self.grid[self.position]
         correct_measurement_prob = self.agent.correct_measurement_prob
         is_correct_measurement = np.random.choice(2, p=[1 - correct_measurement_prob, correct_measurement_prob])
         if is_correct_measurement:
