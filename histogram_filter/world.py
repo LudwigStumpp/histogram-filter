@@ -116,7 +116,7 @@ class Grid:
     def __len__(self) -> int:
         return len(self.field)
 
-    def __str__(self) -> str:
+    def __repr__(self) -> str:
         # prints squares with colors next to each other in one line
         return " ".join(chrs[c] + "   " + chrs["CEND"] for c in self.field)
 
@@ -195,7 +195,7 @@ class Environment:
         """Get sensor matrix."""
         return get_sensor_matrix(self.grid.field, self.agent.correct_measurement_prob)
 
-    def __str__(self) -> str:
+    def __repr__(self) -> str:
         """Print the grid with the agent on it."""
         chars = [" X " if self.position == i else "   " for i in range(len(self.grid))]
         return " ".join(chrs[color] + char + chrs["CEND"] for color, char in zip(self.grid.field, chars))
