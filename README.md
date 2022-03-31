@@ -20,3 +20,4 @@ In addition, the library `termplotlib` used for plotting graphs in the console r
 
 ## Development
 We use black for formatting, mypy for static typing and flake for linting. The development dependencies are listed under the `requirements.txt` file.
+In order to enforce these, we are using https://pre-commit.com/ for which one installs the git-hooks with `pre-commit install`.
