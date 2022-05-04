@@ -1,8 +1,15 @@
+from typing import Iterable
+
 import numpy as np
-from histogram_filter.world import Grid, Color, Agent, Environment, TransitionSpecification
 import termplotlib as tpl
 
-from typing import Iterable
+from histogram_filter.world import (
+    Agent,
+    Color,
+    Environment,
+    Grid,
+    TransitionSpecification,
+)
 
 
 def bayes(prior: np.ndarray, conditional: np.ndarray) -> np.ndarray:

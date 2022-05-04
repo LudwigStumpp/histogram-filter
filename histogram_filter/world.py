@@ -1,6 +1,7 @@
 from enum import Enum
-import numpy as np
 from typing import NamedTuple
+
+import numpy as np
 
 
 class Color(Enum):
